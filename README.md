@@ -16,11 +16,16 @@ The aim of the project was to create an image classifier for dog breeds by build
 
 ## Data
 
-This data set has 8,351 total images showing 133 different breeds. The distribution of the data is shown in the bellow images:
+This data set has 8,351 total images showing 133 different breeds. The total number of dog images used for this application was 8351 which were divided into:
+* 6680 images (approx. 80%) for the training set
+* 835 images (approx. 10% ) for the validation set
+* 836 images (approx. 10% ) for the test set
 
-![](readme_images/training.png)
-![](readme_images/validation.png)
-![](readme_images/test.png)
+The images contain dogs from 133 breeds, i.e., 133 classes. A dog will be classified as belonging to one breed only (the classifier will not predict two breeds for a dog if it’s a crossbreed dog).
+
+An overview of the data distribution can be seen bellow. In the plots, the dog breeds on the horizontal axis are not intelligible, however, the ordering of the classes -the breeds - is kept the same across the three plots. It can be observed from the three plots that, roughly speaking, the distribution of the dog breed images in the three datasets is similar, meaning that training on the selected dataset could lead to a rather satisfactory performance on the validation and test sets.
+
+![](readme_images/training.png) ![](readme_images/validation.png) ![](readme_images/test.png)
 
 
 
