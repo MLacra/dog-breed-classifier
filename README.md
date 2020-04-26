@@ -15,6 +15,7 @@ The aim of the project was to create an image classifier for dog breeds by build
 
 
 ## Data
+The data was provided by Udacity as part of the Data Science Nanodegree.
 
 This data set has 8,351 total images showing 133 different breeds. The total number of dog images used for this application was 8351 which were divided into:
 * 6680 images (approx. 80%) for the training set
