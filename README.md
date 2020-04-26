@@ -36,11 +36,14 @@ The project uses the pretrained ResNet_50 weights in keras to detect dog from im
 The project uses OpenCV’s implementation of Haar feature-based cascade object classifier to detect human faces in images. This detector proved to be slightly less accurate with a 100% true positives and 11% false positives rate tested on 100 sample human images and 100 dog images, respectively.  If a human face is detected, then it the app proceeds into showing the most resembling breed to the face in the image.
 
 ## Dog classifier 
-### CNN Architecture
+### CNN Architecture - from stratch
 * _Convolutional Layers._ For building the network, I used Keras to create its architecture with three convolutional layers with Relu activation functions.
 The three convolutional layers contain 16, 32, and 64 filters, respectively. With each layer, the image is squeezed by reducing its width and height while increasing the depth. The depth represents the number of filters the layer has. Each filter usually focuses on different patterns in an image, e.g., one filter might focus on detecting teeth, one on detecting ears etc. The more filters the CNNs have, the more details the model can learn about an image. However, adding too many filters could become computationally expensive.
 * _Pooling._ After each convolutional layer, I added MaxPooling. The purpose of Pooling is to down-sample a representation, e.g., an input image or the output of a layer, reducing its dimensionality. Although, some of the accuracy might be lost through pooling, the advantage is that it significantly reduces the number of parameters, consequently reducing the computation on the network. Moreover, it helps the network not to overfit.
 * _Dropout._ After the last convolutional layer, I added Dropout of 25%. Dropout is a regularization technique used in training neural networks so as to avoid overfitting the model. The effect of our added dropout of 25% means that, during training, the network will randomly deactivate a node with a probability of 0.25 and only the active nodes will be trained. 
+
+### CNN with transfer learning
+To solve our problem, I used the pretrained model named VGG16. This enabled me to use the pretuned parameters while changing only the classifier. This helped me achieve both better accuracy and training time as now, most parameters were frozen (as they were pretuned) and only the classifier parameters were changed.
 
 ### Evaluation
 Given that the data is slightly imbalanced and the problem is a for multiclassification, I used accuracy evaluation metric and categorical_crossentropy cost function. The log loss punishes the classifier if the prediction is different from the real one.
